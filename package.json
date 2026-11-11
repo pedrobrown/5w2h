@@ -1,0 +1,46 @@
+{
+  "name": "5w2h-finance",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"wrangler dev --port 8787\" \"vite --host 127.0.0.1\"",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint src frontend vite.config.ts vitest.config.ts",
+    "test": "vitest run --config vitest.config.ts",
+    "preview": "vite preview --host 127.0.0.1",
+    "cf:types": "wrangler types",
+    "deploy:dry": "npm run build && cf deploy --dry-run",
+    "deploy": "npm run build && cf deploy"
+  },
+  "dependencies": {
+    "hono": "^4.13.17",
+    "jose": "^6.2.17",
+    "lucide-react": "^1.71.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.7.0",
+    "@cloudflare/workers-types": "^5.20261110.1",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "cf": "^1.0.0-beta.29",
+    "concurrently": "^10.0.7",
+    "openapi-typescript": "^7.13.0",
+    "oxlint": "^1.90.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.6",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^4.1.12",
+    "wrangler": "^4.160.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261110.1": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "5w2h",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-10",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "5w2h-finance",
+      "database_id": "91e1f490-e0c7-4738-b515-4a6f2b03c532",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  "vars": {
+    "ACCESS_ISSUER": "https://configure-cloudflare-access.example",
+    "ACCESS_AUD": "fedc6c8d7fdc39578c9b164af47359d0c99b614d7941f1189da27d3accea4d6a"
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  }
+}
